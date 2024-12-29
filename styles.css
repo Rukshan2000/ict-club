@@ -1,0 +1,416 @@
+/* General styles */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Logo styling */
+.logo {
+    height: 50px; /* Adjust the height of the logo */
+}
+
+/* Navigation bar styles */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: black;
+}
+
+/* Navigation center styles */
+/* Burger menu styles */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.burger-icon {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+/* Mobile navigation */
+.nav-center {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    margin-left: 50px;
+}
+
+.nav-center li {
+    margin-left: 30px;
+}
+
+.nav-center li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Navigation for mobile */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block;
+    }
+
+    .nav-center {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: black;
+        width: 100%;
+        flex-direction: column;
+        display: none;
+    }
+
+    .nav-center li {
+        margin-left: 0;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .nav-center.show {
+        display: block;
+    }
+}
+
+/* Create the underline effect on hover */
+.nav-center li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Position the line just below the text */
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+/* On hover, expand the underline */
+.nav-center li a:hover::after {
+    width: 100%;
+}
+
+
+/* Right-side button styles */
+.right-side button {
+    padding: 10px 20px;
+    background-color: black;
+    border: 2px solid white; /* White border added */
+    border-radius: 20px;
+}
+
+.right-side button a {
+    color: white;
+    text-decoration: none;
+}
+
+.right-side button:hover {
+    background-color: black;
+    border-color: white; /* Optional: Change border color on hover for effect */
+}
+
+
+
+#cover {
+    height: 100vh;
+    background-image: url('assets/cover.webp'); /* Path to your cover image */
+    background-size: contain; /* Ensure the full image is shown */
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 80%; /* Adjust this value to reduce the width */
+    margin: 0 auto; /* Center the content horizontally */
+}
+.cover-content h1 {
+    font-size: 60px;
+    font-family: 'Orbitron', sans-serif;
+    color: #ccc;
+    margin: 0;
+}
+
+.cover-content p {
+    font-size: 16px;
+    color: #999;
+    margin-top: 10px;
+}
+
+/* Carousel Section */
+#carousel {
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    gap: 20px;
+    width: 100%; /* Adjust to fit the screen */
+    scroll-behavior: smooth;
+    justify-content: center;
+}
+
+/* Card styling */
+.card {
+    background: #222;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    width: 300px;
+    height: 450px;
+    text-align: center;
+    position: relative;
+}
+
+.card h2 {
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+.card button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card button:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.carousel-navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-navigation .prev, 
+.carousel-navigation .next {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.carousel-navigation .prev:hover, 
+.carousel-navigation .next:hover {
+    color: #ddd;
+}
+
+/* Glowing edges */
+.card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
+    animation: rotate 6s infinite linear;
+}
+
+/* Media Queries */
+
+
+
+/* Grid layout for Board of Officials */
+.officials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+    margin-top: 40px;
+}
+
+.official {
+    background-color: black;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+}
+
+.official img {
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Contact section styles */
+#contact {
+    padding: 40px;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Grid layout for contact cards */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.contact-card {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.contact-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+}
+
+/* Text styling */
+.contact-card .name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-card .position {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contact-card .number {
+    font-size: 14px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    bottom: 0;
+}
+
+
+/* Desktop view (three cards) */
+@media (min-width: 769px) {
+    .carousel-container {
+        flex-direction: row; /* Display cards in a row */
+    }
+
+    .carousel-container .card {
+        width: 300px; /* Keep the card width for desktop */
+    }
+}
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-center {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .cover-content h1 {
+        font-size: 40px;
+    }
+
+    .officials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .carousel-container {
+        flex-direction: column; /* Stack the cards vertically */
+        align-items: center;
+    }
+    
+    .carousel-container .card {
+        width: 80%; /* Adjust card width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .officials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cover-content h1 {
+        font-size: 30px;
+    }
+}
+
+
