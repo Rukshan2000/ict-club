@@ -1,0 +1,126 @@
+/* Navigation bar styles */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: black;
+    position: fixed; /* Keeps it fixed on scroll */
+    top: 0; /* Keeps it at the top */
+    width: calc(100% - 40px); /* Adjust the width to account for margins */
+    margin: 50 50px; /* Adds left and right margin */
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+
+
+
+/* Navigation center styles */
+.nav-center {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    margin-left: 50px;
+}
+
+.nav-center li {
+    margin-left: 30px;
+}
+
+.nav-center li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+/* Right-side button styles for desktop */
+.right-side button {
+    padding: 10px 20px;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+.right-side button a {
+    color: white;
+    text-decoration: none;
+}
+
+.right-side button:hover {
+    background-color: black;
+    border-color: white;
+}
+
+/* Burger menu styles */
+.burger-menu {
+    display: none;
+    cursor: pointer;
+}
+
+.burger-icon {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+/* Mobile Sign Up button style */
+.sign-up-mobile {
+    display: none; /* Hide the mobile button by default */
+}
+
+.sign-up-mobile button {
+    padding: 10px 20px;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+.sign-up-mobile button a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    /* Show burger menu in mobile view */
+    .burger-menu {
+        display: block;
+    }
+
+    /* Adjust the nav-center for mobile view */
+    .nav-center {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: black;
+        width: 100%;
+        flex-direction: column;
+        display: none;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+    }
+
+    .nav-center.open {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    .nav-center li {
+        margin: 10px 0;
+    }
+
+    /* Show the Sign Up button in the mobile menu */
+    .sign-up-mobile {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Hide the button in the right side of the nav in mobile view */
+    .right-side {
+        display: none;
+    }
+}

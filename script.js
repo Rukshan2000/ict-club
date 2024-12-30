@@ -16,3 +16,14 @@ function toggleMenu() {
     const menu = document.querySelector('.nav-center');
     menu.classList.toggle('show');
 }
+
+
+// Select the burger menu and the nav-center
+const burgerMenu = document.querySelector('.burger-menu');
+const navCenter = document.querySelector('.nav-center');
+
+// Add click event to the burger menu to toggle the navigation
+burgerMenu.addEventListener('click', () => {
+    navCenter.classList.toggle('open');
+});
+
