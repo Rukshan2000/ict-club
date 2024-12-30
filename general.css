@@ -1,8 +1,14 @@
 /* General styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     background-color: black;
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Changed to Poppins */
     margin: 0;
     padding: 0;
     display: flex;
