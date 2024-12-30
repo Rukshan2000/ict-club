@@ -18,12 +18,11 @@ function toggleMenu() {
 }
 
 
-// Select the burger menu and the nav-center
-const burgerMenu = document.querySelector('.burger-menu');
-const navCenter = document.querySelector('.nav-center');
-
-// Add click event to the burger menu to toggle the navigation
-burgerMenu.addEventListener('click', () => {
-    navCenter.classList.toggle('open');
+document.getElementById('burger-menu').addEventListener('click', function() {
+    const drawer = document.getElementById('drawer');
+    const burger = document.getElementById('burger-menu');
+    
+    drawer.classList.toggle('open');
+    burger.classList.toggle('open');
 });
 

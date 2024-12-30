@@ -1,126 +1,131 @@
-/* Navigation bar styles */
-nav {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    position: sticky; /* This makes the navbar sticky */
+    top: 0; /* Stick to the top of the page */
+    z-index: 1000; /* Ensure it's above other content */
+    width: 100%; /* Ensure the navbar spans the full width */
+}
+
+
+.logo a {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: black;
-    position: fixed; /* Keeps it fixed on scroll */
-    top: 0; /* Keeps it at the top */
-    width: calc(100% - 40px); /* Adjust the width to account for margins */
-    margin: 50 50px; /* Adds left and right margin */
-    z-index: 1000; /* Ensure it stays on top */
 }
 
+.logo-img {
+    width: 100px; /* Adjust the size of the logo */
+    height: auto;
+}
 
-
-
-/* Navigation center styles */
-.nav-center {
-    list-style: none;
+.nav-links ul {
     display: flex;
-    justify-content: center;
-    flex-grow: 1;
-    margin-left: 50px;
+    list-style: none;
 }
 
-.nav-center li {
-    margin-left: 30px;
+.nav-links ul li {
+    margin-right: 20px;
 }
 
-.nav-center li a {
+.nav-links ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
-    position: relative;
+    font-size: 16px;
 }
 
-/* Right-side button styles for desktop */
-.right-side button {
+.cta-btn {
+    background-color: #ff6347;
+    color: white;
+    border: none;
     padding: 10px 20px;
-    background-color: black;
-    border: 2px solid white;
-    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-.right-side button a {
-    color: white;
-    text-decoration: none;
-}
-
-.right-side button:hover {
-    background-color: black;
-    border-color: white;
-}
-
-/* Burger menu styles */
 .burger-menu {
     display: none;
     cursor: pointer;
 }
 
-.burger-icon {
+.burger {
     width: 30px;
     height: 3px;
     background-color: white;
-    margin: 5px 0;
+    margin: 6px 0;
+    transition: 0.4s;
 }
 
-/* Mobile Sign Up button style */
-.sign-up-mobile {
-    display: none; /* Hide the mobile button by default */
-}
-
-.sign-up-mobile button {
-    padding: 10px 20px;
+.drawer {
+    position: absolute;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
     background-color: black;
-    border: 2px solid white;
-    border-radius: 20px;
+    transition: left 0.3s ease-in-out;
+    padding-top: 60px;
 }
 
-.sign-up-mobile button a {
+.drawer ul {
+    list-style: none;
+}
+
+.drawer ul li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+}
+
+.drawer ul li a {
     color: white;
     text-decoration: none;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
-    /* Show burger menu in mobile view */
+    .nav-links {
+        display: none;
+    }
+
+    .cta-btn {
+        display: none;
+    }
+
     .burger-menu {
         display: block;
     }
+}
 
-    /* Adjust the nav-center for mobile view */
-    .nav-center {
+@media (max-width: 768px) {
+    .drawer.open {
+        left: 0;
+    }
+
+    .burger.open .burger:nth-child(1) {
+        transform: rotate(-45deg);
         position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: black;
-        width: 100%;
-        flex-direction: column;
-        display: none;
-        transition: transform 0.3s ease-in-out;
-        transform: translateX(100%);
+        top: 8px;
     }
 
-    .nav-center.open {
-        display: flex;
-        transform: translateX(0);
+    .burger.open .burger:nth-child(2) {
+        opacity: 0;
     }
 
-    .nav-center li {
-        margin: 10px 0;
-    }
-
-    /* Show the Sign Up button in the mobile menu */
-    .sign-up-mobile {
-        display: block;
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    /* Hide the button in the right side of the nav in mobile view */
-    .right-side {
-        display: none;
+    .burger.open .burger:nth-child(3) {
+        transform: rotate(45deg);
+        position: absolute;
+        top: -8px;
     }
 }

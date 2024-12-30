@@ -9,39 +9,36 @@
     <link rel="stylesheet" href="carousel.css">
     </head>
 <body>
-    <!-- Header -->
     <header>
-        <nav>
-            <!-- Add the logo image here -->
-            <img src="assets/logo.avif" alt="Cybernetics Logo" class="logo">
-            <nav>
-                <!-- Left side content like logo or brand -->
-                <div class="left-side">
-                    <!-- Logo or brand name here -->
-                </div>
-            
-                <!-- Centered navigation links -->
-                <ul class="nav-center">
+        <div class="navbar">
+            <div class="logo">
+                <!-- Using logo.avif image -->
+                <a href="#"><img src="assets/logo.avif" alt="Logo" class="logo-img"></a>
+            </div>
+            <nav class="nav-links">
+                <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Services</a></li>
                     <li><a href="#">Contact</a></li>
-                    <!-- Add the Sign Up button inside the nav-center for mobile view -->
-                    <li class="sign-up-mobile">
-                        <button><a href="#">Sign Up</a></button>
-                    </li>
                 </ul>
-            
-                <!-- Burger menu icon -->
-                <div class="burger-menu">
-                    <div class="burger-icon"></div>
-                    <div class="burger-icon"></div>
-                    <div class="burger-icon"></div>
-                </div>
             </nav>
-            
-            
-            
+            <button class="cta-btn">Button</button>
+            <div class="burger-menu" id="burger-menu">
+                <div class="burger"></div>
+                <div class="burger"></div>
+                <div class="burger"></div>
+            </div>
+        </div>
+        <div class="drawer" id="drawer">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Button</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- Main Content: Cover Page Section -->
