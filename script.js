@@ -1,15 +1,68 @@
+const prev = document.querySelector("#prev");
+const next = document.querySelector("#next");
 
-const carousel = document.querySelector('.carousel-container');
-const nextButton = document.querySelector('.next');
-const prevButton = document.querySelector('.prev');
+let carouselVp = document.querySelector("#carousel-vp");
 
-nextButton.addEventListener('click', () => {
-    carousel.scrollBy({ left: 320, behavior: 'smooth' });
+let cCarouselInner = document.querySelector("#cCarousel-inner");
+let carouselInnerWidth = cCarouselInner.getBoundingClientRect().width;
+
+let leftValue = 0;
+
+// Variable used to set the carousel movement value (card's width + gap)
+const totalMovementSize =
+  parseFloat(
+    document.querySelector(".cCarousel-item").getBoundingClientRect().width,
+    10
+  ) +
+  parseFloat(
+    window.getComputedStyle(cCarouselInner).getPropertyValue("gap"),
+    10
+  );
+
+prev.addEventListener("click", () => {
+  if (!leftValue == 0) {
+    leftValue -= -totalMovementSize;
+    cCarouselInner.style.left = leftValue + "px";
+  }
 });
 
-prevButton.addEventListener('click', () => {
-    carousel.scrollBy({ left: -320, behavior: 'smooth' });
+next.addEventListener("click", () => {
+  const carouselVpWidth = carouselVp.getBoundingClientRect().width;
+  if (carouselInnerWidth - Math.abs(leftValue) > carouselVpWidth) {
+    leftValue -= totalMovementSize;
+    cCarouselInner.style.left = leftValue + "px";
+  }
 });
+
+const mediaQuery510 = window.matchMedia("(max-width: 510px)");
+const mediaQuery770 = window.matchMedia("(max-width: 770px)");
+
+mediaQuery510.addEventListener("change", mediaManagement);
+mediaQuery770.addEventListener("change", mediaManagement);
+
+let oldViewportWidth = window.innerWidth;
+
+function mediaManagement() {
+  const newViewportWidth = window.innerWidth;
+
+  if (leftValue <= -totalMovementSize && oldViewportWidth < newViewportWidth) {
+    leftValue += totalMovementSize;
+    cCarouselInner.style.left = leftValue + "px";
+    oldViewportWidth = newViewportWidth;
+  } else if (
+    leftValue <= -totalMovementSize &&
+    oldViewportWidth > newViewportWidth
+  ) {
+    leftValue -= totalMovementSize;
+    cCarouselInner.style.left = leftValue + "px";
+    oldViewportWidth = newViewportWidth;
+  }
+}
+
+
+$('input').on('change', function() {
+    $('body').toggleClass('blue');
+  });
 
 
 function toggleMenu() {
@@ -25,4 +78,6 @@ document.getElementById('burger-menu').addEventListener('click', function() {
     drawer.classList.toggle('open');
     burger.classList.toggle('open');
 });
+
+
 
