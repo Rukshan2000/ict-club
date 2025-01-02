@@ -7,9 +7,20 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
         <script src="https://cdn.tailwindcss.com"></script>
+
+        <style>
+            /* Hide scrollbar */
+            .carousel::-webkit-scrollbar {
+                display: none;
+            }
+            .carousel {
+                -ms-overflow-style: none;  /* Internet Explorer 10+ */
+                scrollbar-width: none;  /* Firefox */
+            }
+        </style>
     </head>
     
-    <body class="bg-gray-100 font-poppins">
+    <body class="bg-black font-poppins">
         <!-- Header -->
         <header class="bg-gray-800 p-4">
             <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
@@ -65,26 +76,50 @@
                 </div>
             </section>
             
-            
-    
             <!-- Card Carousel Section -->
-            <section id="carousel" class="py-8">
-                <div class="carousel-container relative overflow-hidden">
-                    <div class="flex space-x-6 transition-transform duration-500" id="carousel-cards">
-                        <!-- Card 1 -->
-                        <div class="bg-white shadow-md rounded-md p-4 w-80">
-                            <img src="https://via.placeholder.com/400x200" alt="Image 1" class="rounded-md">
-                            <h3 class="text-xl font-semibold mt-4">Card 1</h3>
-                            <p class="text-gray-600">This is the first card's description.</p>
-                            <button class="bg-blue-600 text-white mt-4 px-4 py-2 rounded-md hover:bg-blue-700">Learn More</button>
+            <section id="carousel" class="py-12">
+                <div class="container mx-auto px-2 py-8">
+                    <div class="relative">
+                        <div id="carousel-container" class="flex overflow-x-auto scroll-smooth snap-x snap-mandatory carousel">
+                            <!-- Card 1 -->
+                            <div class="snap-start flex-none w-full lg:w-1/3 bg-gray-900 text-white rounded-lg  p-4 m-2">
+                                <img src="https://via.placeholder.com/400x200" alt="Card 1 Image" class="w-full h-48 object-cover rounded-t-lg">
+                                <h2 class="text-lg font-bold mt-4">Card 1</h2>
+                                <p class="mt-2">This is the description of the first card. It contains some content and details.</p>
+                                <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">Learn More</button>
+                            </div>
+                            <!-- Card 2 -->
+                            <div class="snap-start flex-none w-full lg:w-1/3 bg-gray-900 text-white rounded-lg  p-4 m-2">
+                                <img src="https://via.placeholder.com/400x200" alt="Card 2 Image" class="w-full h-48 object-cover rounded-t-lg">
+                                <h2 class="text-lg font-bold mt-4">Card 2</h2>
+                                <p class="mt-2">This is the description of the second card. It contains some content and details.</p>
+                                <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">Learn More</button>
+                            </div>
+                            <!-- Card 3 -->
+                            <div class="snap-start flex-none w-full lg:w-1/3 bg-gray-900 text-white rounded-lg  p-4 m-2">
+                                <img src="https://via.placeholder.com/400x200" alt="Card 3 Image" class="w-full h-48 object-cover rounded-t-lg">
+                                <h2 class="text-lg font-bold mt-4">Card 3</h2>
+                                <p class="mt-2">This is the description of the third card. It contains some content and details.</p>
+                                <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">Learn More</button>
+                            </div>
+                            <!-- Card 4 -->
+                            <div class="snap-start flex-none w-full lg:w-1/3 bg-gray-900 text-white rounded-lg  p-4 m-2">
+                                <img src="https://via.placeholder.com/400x200" alt="Card 4 Image" class="w-full h-48 object-cover rounded-t-lg">
+                                <h2 class="text-lg font-bold mt-4">Card 4</h2>
+                                <p class="mt-2">This is the description of the fourth card. It contains some content and details.</p>
+                                <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">Learn More</button>
+                            </div>
+                        </div>
+            
+                        <!-- Navigation Buttons -->
+                        <div class="flex justify-center mt-4 space-x-4">
+                            <button id="prev" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Prev</button>
+                            <button id="next" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Next</button>
                         </div>
                     </div>
-    
-                    <!-- Carousel Navigation -->
-                    <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-blue-600 text-white px-3 py-1 rounded-full" onclick="prevCard()">&#10094;</button>
-                    <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-blue-600 text-white px-3 py-1 rounded-full" onclick="nextCard()">&#10095;</button>
                 </div>
             </section>
+            
         </main>
     
         <!-- Footer -->
@@ -93,5 +128,6 @@
         </footer>
     
         <script src="script.js"></script>
+ 
     </body>
 </html>
